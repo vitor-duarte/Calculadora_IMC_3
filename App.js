@@ -12,7 +12,7 @@ const Calculadora_IMC = () => {
     const pesoemKg = parseFloat(peso);
     const alturaemMetros = parseFloat(altura) / 100;                           // converter altura para metros
 
-    if (pesoInKg > 0 && alturaemMetros > 0) {
+    if (pesoemKg > 0 && alturaemMetros > 0) {
       const calculatedBMI = pesoemKg / (alturaemMetros * alturaemMetros);
       setBmi(calculatedBMI.toFixed(2));
       setMessage(getBMIMessage(calculatedBMI));
@@ -30,7 +30,7 @@ const Calculadora_IMC = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Calculadora IMC</Text>
+      <Text style={styles.title}>Calculadora  IMC</Text>
       <TextInput
         style={styles.input}
         placeholder="Peso (kg)"
@@ -42,8 +42,8 @@ const Calculadora_IMC = () => {
         style={styles.input}
         placeholder="Altura (cm)"
         keyboardType="numeric"
-        value={height}
-        onChangeText={setHeight}
+        value={altura}
+        onChangeText={setAltura}
       />
       <Button title="Calcular  IMC" onPress={calculateBMI} />
       {bmi && (
