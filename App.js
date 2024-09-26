@@ -28,6 +28,12 @@ const Calculadora_IMC = () => {
     else return 'Obesidade';
   };
 
+  const limparCampos = () => {
+    setPeso('');
+    setAltura('');
+    setBmi('');
+  }
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Calculadora  IMC</Text>
@@ -45,7 +51,16 @@ const Calculadora_IMC = () => {
         value={altura}
         onChangeText={setAltura}
       />
-      <Button title="Calcular  IMC" onPress={calculateBMI} />
+
+      <View style={styles.buttonRow}>
+        <View style={styles.button}>
+          <Button style={styles.button} title="Calcular  IMC" onPress={calculateBMI} />
+        </View> 
+        <View style={styles.button}>
+          <Button style={styles.button} title="Limpar campos" onPress={limparCampos} />
+        </View> 
+      </View>
+
       {bmi && (
         <View style={styles.result}>
           <Text style={styles.resultText}>IMC : {bmi}</Text>
@@ -76,6 +91,15 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     marginBottom: 10,
     paddingHorizontal: 10,
+  },
+  buttonRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginVertical: 20,
+  },
+  button: {
+    flex: 1,
+    marginHorizontal: 5,
   },
   result: {
     marginTop: 20,
